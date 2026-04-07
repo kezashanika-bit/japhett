@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japhett's Bar & Grill - Kagugu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(138, 43, 226, 0.8), 0 0 30px rgba(255, 0, 0, 0.5);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes colorChange {
+            0% { color: #ff0000; }
+            25% { color: #8a2be2; }
+            50% { color: #00008B; }
+            75% { color: #8a2be2; }
+            100% { color: #ff0000; }
+        }
+
+        @keyframes borderGlow {
+            0%, 100% {
+                border-color: #8a2be2;
+                box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+            }
+            50% {
+                border-color: #ff0000;
+                box-shadow: 0 0 25px rgba(255, 0, 0, 0.8), 0 0 50px rgba(138, 43, 226, 0.5);
+            }
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            30% { transform: scale(1.1); }
+            40% { transform: scale(1); }
+        }
+
+        @keyframes slideInTop {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInBottom {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes flipIn {
+            from {
+                opacity: 0;
+                transform: rotateY(-90deg);
+            }
+            to {
+                opacity: 1;
+                transform: rotateY(0);
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        @keyframes textShadowGlow {
+            0%, 100% {
+                text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(255, 0, 0, 1), 0 0 30px rgba(138, 43, 226, 0.8);
+            }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(0deg); }
+            20% { transform: rotate(15deg); }
+            40% { transform: rotate(-10deg); }
+            60% { transform: rotate(5deg); }
+            80% { transform: rotate(-5deg); }
+        }
+
+        @keyframes backgroundMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a0033 50%, #000000 100%);
+            background-size: 200% 200%;
+            animation: fadeInUp 0.8s ease-out, backgroundMove 15s ease infinite;
+            color: white;
+        }
+
+        header {
+            background: linear-gradient(90deg, #000000, #4a0080, #00008B);
+            padding: 20px 0;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideInLeft 0.6s ease-out;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff0000;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+            animation: pulse 2s infinite, glow 3s infinite, colorChange 5s infinite, textShadowGlow 2s infinite;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #ff0000, #8a2be2);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #8a2be2;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #4a0080, #00008B, #000000);
+            animation: fadeInUp 1s ease-out 0.3s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '🍻';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: spin 20s linear infinite;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ff0000;
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            animation: slideInRight 0.8s ease-out 0.5s both, float 3s ease-in-out infinite, textShadowGlow 3s infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 24px;
+            color: #8a2be2;
+            margin-bottom: 30px;
+            animation: slideInLeft 0.8s ease-out 0.7s both, pulse 4s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff0000, #8a2be2);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: bounce 2s ease-in-out infinite, glow 2s infinite, wiggle 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .cta-button::after {
+            content: '→';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: slideInRight 0.5s ease-out infinite alternate;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 0 40px rgba(138, 43, 226, 1), 0 0 60px rgba(255, 0, 0, 0.5);
+            animation: heartbeat 0.5s ease-in-out, rainbow 2s linear infinite;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #8a2be2;
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #eaff00, #372be2, #00ffff);
+            animation: shimmer 2s infinite;
+            background-size: 200% 100%;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-category {
+            background: linear-gradient(135deg, #1a0033, #00001a);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #8a2be2;
+            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.3);
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.6s ease-out, borderGlow 3s infinite;
+            animation-fill-mode: both;
+        }
+
+        .menu-category:nth-child(1) { animation-delay: 0.1s; }
+        .menu-category:nth-child(2) { animation-delay: 0.3s; }
+        .menu-category:nth-child(3) { animation-delay: 0.5s; }
+
+        .menu-category:hover {
+            transform: translateY(-15px) scale(1.05) rotate(-2deg);
+            box-shadow: 0 15px 40px rgba(138, 43, 226, 0.8), 0 0 50px rgba(255, 0, 0, 0.5);
+            border-color: #ff0000;
+            animation: shake 0.5s ease-in-out, borderGlow 1s infinite;
+        }
+
+        .menu-category h3 {
+            color: #ff0000;
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-bottom: 2px solid #8a2be2;
+            padding-bottom: 10px;
+            animation: slideInTop 0.5s ease-out, colorChange 5s infinite;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+            transition: all 0.3s ease;
+            animation: slideInLeft 0.4s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .menu-item:nth-child(1) { animation-delay: 0.1s; }
+        .menu-item:nth-child(2) { animation-delay: 0.15s; }
+        .menu-item:nth-child(3) { animation-delay: 0.2s; }
+        .menu-item:nth-child(4) { animation-delay: 0.25s; }
+        .menu-item:nth-child(5) { animation-delay: 0.3s; }
+        .menu-item:nth-child(6) { animation-delay: 0.35s; }
+
+        .menu-item:hover {
+            padding-left: 15px;
+            background: rgba(138, 43, 226, 0.2);
+            border-radius: 8px;
+            transform: translateX(5px);
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+        }
+
+        .menu-item:hover .item-name {
+            color: #8a2be2;
+            animation: wiggle 0.5s ease-in-out;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-name {
+            color: white;
+            font-size: 16px;
+        }
+
+        .item-price {
+            color: #ff0000;
+            font-weight: bold;
+            font-size: 18px;
+            animation: pulse 2s infinite, colorChange 4s infinite;
+        }
+
+        .menu-item:hover .item-price {
+            animation: heartbeat 0.5s ease-in-out, textShadowGlow 1s infinite;
+            transform: scale(1.2);
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #4a0080, #00008B);
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out, borderGlow 5s infinite;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #8a2be2;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(138, 43, 226, 0.2), transparent);
+            animation: rotate 15s linear infinite;
+        }
+
+        .contact-section::after {
+            content: '📞';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 50px;
+            opacity: 0.3;
+            animation: bounce 2s ease-in-out infinite, spin 10s linear infinite;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            flex: 1;
+            min-width: 250px;
+            animation: zoomIn 0.6s ease-out;
+            animation-fill-mode: both;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item:nth-child(1) { animation-delay: 0.2s; }
+        .contact-item:nth-child(2) { animation-delay: 0.4s; }
+        .contact-item:nth-child(3) { animation-delay: 0.6s; }
+
+        .contact-item:hover {
+            transform: translateY(-10px) scale(1.1);
+            animation: swing 0.5s ease-in-out;
+        }
+
+        .contact-item h3 {
+            animation: colorChange 5s infinite;
+        }
+
+        .contact-item:hover h3 {
+            animation: wiggle 0.5s ease-in-out, textShadowGlow 1s infinite;
+        }
+
+        .contact-item h3 {
+            color: #ff0000;
+            margin-bottom: 10px;
+        }
+
+        .contact-item p {
+            font-size: 18px;
+            color: white;
+        }
+
+        .whatsapp-button {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            animation: bounce 2s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.8);
+            animation: none;
+        }
+
+        footer {
+            background: #000000;
+            text-align: center;
+            padding: 30px;
+            color: #8a2be2;
+            border-top: 2px solid #8a2be2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        footer p {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.3);
+            transition: all 0.4s ease;
+            background: linear-gradient(135deg, #1a0033, #00001a);
+            border: 2px solid #8a2be2;
+            animation: zoomIn 0.6s ease-out, borderGlow 4s infinite;
+            animation-fill-mode: both;
+        }
+
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+
+        .gallery-item::before {
+            content: '✨';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            opacity: 0;
+            animation: spin 3s linear infinite;
+            transition: opacity 0.3s;
+            z-index: 10;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.15) rotate(3deg);
+            box-shadow: 0 15px 50px rgba(138, 43, 226, 0.8), 0 0 60px rgba(255, 0, 0, 0.6);
+            border-color: #ff0000;
+            z-index: 10;
+            animation: shake 0.3s ease-in-out, rainbow 2s linear infinite;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item video {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            animation: pulse 3s infinite;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            animation: wiggle 0.5s ease-in-out, colorChange 2s infinite;
+        }
+
+        .upload-section {
+            background: linear-gradient(135deg, #4a0080, #00008B);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .upload-section h3 {
+            color: #4800ff;
+            margin-bottom: 15px;
+        }
+
+        .upload-section p {
+            color: white;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .placeholder-box {
+            background: rgba(138, 43, 226, 0.2);
+            border: 2px dashed #8a2be2;
+            padding: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
+            color: #8a2be2;
+            font-size: 18px;
+            text-align: center;
+            animation: pulse 3s ease-in-out infinite, borderGlow 4s infinite;
+        }
+
+        .gallery-item:hover .placeholder-box {
+            animation: heartbeat 0.5s ease-in-out;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">Japhett's Bar & Grill</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Welcome to Japhett's Bar & Grill</h1>
+        <p>Premium Drinks, Brochettes & Great Food - Kagugu</p>
+        <a href="#menu" class="cta-button">View Our Menu</a>
+    </section>
+
+    <div class="container">
+       
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <div class="menu-grid">
+                <div class="menu-category">
+                    <h3>🍺 Beers & Drinks</h3>
+                    <div class="menu-item" onclick="addToCart('Primus', 1000)">
+                        <span class="item-name">Primus</span>
+                        <span class="item-price">1,000 RWF</span>
+                        <button class="add-btn">➕</button>
+                    </div>
+                    <div class="menu-item" onclick="addToCart('Mützig', 1000)">
+                        <span class="item-name">Mützig</span>
+                        <span class="item-price">1,000 RWF</span>
+                        <button class="add-btn">➕</button>
+                    </div>
+                    <div class="menu-item" onclick="addToCart('Turbo King', 1200)">
+                        <span class="item-name">Turbo King</span>
+                        <span class="item-price">1,200 RWF</span>
+                        <button class="add-btn">➕</button>
+                    </div>
+                    <div class="menu-item" onclick="addToCart('Skol', 900)">
+                        <span class="item-name">Skol</span>
+                        <span class="item-price">900 RWF</span>
+                        <button class="add-btn">➕</button>
+                    </div>
+                    <div class="menu-item" onclick="addToCart('Amstel', 1100)">
+                        <span class="item-name">Amstel</span>
+                        <span class="item-price">1,100 RWF</span>
+                        <button class="add-btn">➕</button>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>🍖 Food</h3>
+                    <div class="menu-item" onclick="addToCart('Beef Brochette', 2500)">
+                        <span class="item-name">Beef Brochette</span>
+                        <span class="item-price">2,500 RWF</span>
+                        <button class="add-btn">➕</button>
+                    </div>
+                    <div class="menu-item" onclick="addToCart('Chicken Brochette', 2000)">
+                        <span class="item-name">Chicken Brochette</span>
+                        <span class="item-price">2,000 RWF</span>
+                        <button class="add-btn">➕</button>
+                    </div>
+                    <div class="menu-item" onclick="addToCart('Fried Potatoes', 1500)">
+                        <span class="item-name">Fried Potatoes</span>
+                        <span class="item-price">1,500 RWF</span>
+                        <button class="add-btn">➕</button>
+                    </div>
+                    <div class="menu-item" onclick="addToCart('Fried Plantains', 1500)">
+                        <span class="item-name">Fried Plantains</span>
+                        <span class="item-price">1,500 RWF</span>
+                        <button class="add-btn">➕</button>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>🥤 Soft Drinks & Juices</h3>
+                    <div class="menu-item" onclick="addToCart('Fanta (Orange/Lemon)', 500)">
+                        <span class="item-name">Fanta (Orange/Lemon)</span>
+                        <span class="item-price">500 RWF</span>
+                        <button class="add-btn">➕</button>
+                    </div>
+                    <div class="menu-item" onclick="addToCart('Coca Cola', 500)">
+                        <span class="item-name">Coca Cola</span>
+                        <span class="item-price">500 RWF</span>
+                        <button class="add-btn">➕</button>
+                    </div>
+                    <div class="menu-item" onclick="addToCart('Sprite', 500)">
+                        <span class="item-name">Sprite</span>
+                        <span class="item-price">500 RWF</span>
+                        <button class="add-btn">➕</button>
+                    </div>
+                    <div class="menu-item" onclick="addToCart('Passion Fruit Juice', 1000)">
+                        <span class="item-name">Passion Fruit Juice</span>
+                        <span class="item-price">1,000 RWF</span>
+                        <button class="add-btn">➕</button>
+                    </div>
+                    <div class="menu-item" onclick="addToCart('Tree Tomato Juice', 1000)">
+                        <span class="item-name">Tree Tomato Juice</span>
+                        <span class="item-price">1,000 RWF</span>
+                        <button class="add-btn">➕</button>
+                    </div>
+                    <div class="menu-item" onclick="addToCart('Pineapple Juice', 1000)">
+                        <span class="item-name">Pineapple Juice</span>
+                        <span class="item-price">1,000 RWF</span>
+                        <button class="add-btn">➕</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shopping Cart Section -->
+        <section id="cart" style="display: none;">
+            <h2>Your Order</h2>
+            <div class="cart-container">
+                <div id="cart-items"></div>
+                <div class="cart-total">
+                    <h3>Total: <span id="total-price">0 RWF</span></h3>
+                </div>
+                <div class="cart-actions">
+                    <button onclick="clearCart()" class="clear-btn">Clear Cart</button>
+                    <button onclick="showCheckout()" class="checkout-btn">Proceed to Checkout</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkout Section -->
+        <section id="checkout" style="display: none;">
+            <h2>Complete Your Order</h2>
+            <div class="checkout-container">
+                <div class="checkout-form">
+                    <div class="form-group">
+                        <label>Your Name *</label>
+                        <input type="text" id="customer-name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" id="customer-phone" placeholder="078 XXX XXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Delivery Address *</label>
+                        <input type="text" id="delivery-address" placeholder="Enter delivery address">
+                    </div>
+                    <div class="form-group">
+                        <label>Delivery Type *</label>
+                        <select id="delivery-type">
+                            <option value="pickup">Pickup at Bar</option>
+                            <option value="delivery">Home Delivery</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Special Instructions</label>
+                        <textarea id="special-instructions" placeholder="Any special requests?"></textarea>
+                    </div>
+                    <div class="checkout-actions">
+                        <button onclick="backToCart()" class="back-btn">Back to Cart</button>
+                        <button onclick="submitOrder()" class="submit-btn">Send Order via WhatsApp</button>
+                    </div>
+                </div>
+                <div class="order-summary" id="order-summary"></div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>Our Gallery</h2>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="placeholder-box">
+                        📸 Add Photo of Your Bar
+                    </div>
+                    <div class="gallery-caption">Bar Interior</div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="placeholder-box">
+                    <img src="81b2e460fadc8dfc91b038dc1888daf3.jpg">
+                    </div>
+                    <div class="gallery-caption">Delicious Brochettes</div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="placeholder-box">
+                        <img src="5 Best Inexpensive Whiskeys Under $40 that Don’t Taste Cheap.jpg">
+                    </div>
+                    <div class="gallery-caption">Cold Beers</div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="placeholder-box">
+                        🎥 Add Video of Your Bar
+                    </div>
+                    <div class="gallery-caption">Bar Tour Video</div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="placeholder-box">
+                        
+                        <img src="Fried Plantain.jpg">
+                    </div>
+                    <div class="gallery-caption">Fried Potatoes & Plantains</div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="placeholder-box">
+                        🎥 Add Video of Happy Customers
+                    </div>
+                    <div class="gallery-caption">Customer Experience</div>
+                </div>
+            </div>
+
+
+                
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Contact Us</h2>
+            <p>We're here to serve you anytime!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📍 Location</h3>
+                    <p>Kagugu, Gasabo</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📞 Phone</h3>
+                    <p>0781 276 136</p>
+                </div>
+                <div class="contact-item">
+                    <h3>⏰ Opening Hours</h3>
+                    <p>7:00 AM - 11:00 PM</p>
+                    <p>Every Day</p>
+                </div>
+            </div>
+            <a href="https://wa.me/250781276136" class="whatsapp-button" target="_blank"><button onclick="submitOrderMTN()" class="submit-btn">Pay with MTN MoMo</button>
+
+                💬 Contact Us on WhatsApp
+            </a>
+        </section>
+    </div>
+
+    <script>function submitOrderWhatsApp(orderText) {
+  const whatsappUrl = `https://wa.me/250788123456?text=${encodeURIComponent(orderText)}`;
+  window.open(whatsappUrl, "_blank");
+}
+function submitOrderMTN() {
+  const name = document.getElementById("customer-name").value;
+  const phone = document.getElementById("customer-phone").value;
+  const total = document.getElementById("total-price").textContent;
+
+  // Send order details to your backend
+  fetch("/mtn-payment", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, phone, total })
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert("Payment request sent to your MTN MoMo app. Please approve to complete.");
+  })
+  .catch(err => {
+    alert("Error sending payment request. Try again.");
+  });
+}
+app.post("/mtn-payment", async (req, res) => {
+  const { name, phone, total } = req.body;
+
+  // Call MTN MoMo API (you’ll need API keys from MTN)
+  const response = await fetch("https://sandbox.momodeveloper.mtn.com/collection/v1_0/requesttopay", {
+    method: "POST",
+    headers: {
+      "Authorization": "Bearer YOUR_ACCESS_TOKEN",
+      "X-Reference-Id": "unique-id",
+      "X-Target-Environment": "sandbox",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      amount: total.replace(" RWF", ""),
+      currency: "RWF",
+      externalId: "order123",
+      payer: { partyIdType: "MSISDN", partyId: phone },
+      payerMessage: "Payment for Japhett's Bar & Grill",
+      payeeNote: "Order checkout"
+    })
+  });
+
+  res.json({ status: "Payment initiated" });
+});
+
+
+</script>
+    <footer>
+        <p>&copy; 2024 Japhett's Bar & Grill - Kagugu. All rights reserved.</p>
+        <p>Welcome Anytime! 🍻</p>
+    </footer>
+</body>
+</html>
